@@ -12,8 +12,8 @@ QRectF LinkNMItem::boundingRect() const
 {
     QPolygonF polygon;
     polygon << _movablePoint;
-//    for (QGraphicsItem * item : _items)
-//        polygon << item->sceneBoundingRect().center();
+    for (QGraphicsItem * item : _items)
+        polygon << item->sceneBoundingRect().center();
 
     return polygon.boundingRect().adjusted(-10,-10,10,10);
 }
