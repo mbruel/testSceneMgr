@@ -24,14 +24,17 @@ void LinkItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
         _movablePoint = event->scenePos();
         update();
+        event->accept();
     }
+    else
+        event->ignore();
 }
 
 void LinkItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
+    QGraphicsItem::mouseReleaseEvent(event);
     if (_isMoving)
     {
-        QGraphicsItem::mouseReleaseEvent(event);
         _movablePoint = event->scenePos();
         _isMoving = false;
         _element->setPos(_movablePoint);
