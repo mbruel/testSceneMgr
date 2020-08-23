@@ -9,7 +9,7 @@ class MainWindow;
 }
 
 class QGraphicsScene;
-class Element;
+class GraphicItem;
 
 class MainWindow : public QMainWindow
 {
@@ -19,12 +19,12 @@ public:
     ~MainWindow();
 
     void addElement(const QPointF & pos=QPointF(0,0), const QSize &size = QSize(50,50));
-    void removeElement(Element *elem);
+    void removeElement(GraphicItem *item);
 
     static MainWindow *getInstance();
 
 private:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
 
 private:
     static MainWindow *_mainWin;
@@ -33,8 +33,8 @@ private:
 
     QGraphicsScene *_scene;
 
-    QSet<Element *> _elements;
-    QSet<Element *> _links;
+    QSet<GraphicItem *> _elements;
+    QSet<GraphicItem *> _links;
 };
 
 #endif // MAINWINDOW_H

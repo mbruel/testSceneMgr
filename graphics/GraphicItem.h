@@ -2,17 +2,22 @@
 #define GRAPHICITEM_H
 
 #include <QGraphicsItem>
-class Element;
 
 class GraphicItem : public QGraphicsItem
 {
 public:
-    GraphicItem(Element *elem): QGraphicsItem(),_element(elem){}
+    GraphicItem(const QPointF & pos = QPointF(0,0), const QSize & size = QSize(50,50));
+    virtual ~GraphicItem() = default;
 
 protected:
-    Element *_element;
+    void contextMenuEvent(QGraphicsSceneContextMenuEvent *event);
 
+protected:
     static const int sPenSize = 2;
+
+    QPointF _scenePos;
+    QSize   _size;
+    QColor  _color;
 };
 
 #endif // GRAPHICITEM_H

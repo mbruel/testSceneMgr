@@ -2,14 +2,16 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
 #include <QRectF>
-#include "Element.h"
 
-ComplexItem::ComplexItem(Element *elem): GraphicItem(elem)
-{setPos(_element->pos());}
+ComplexItem::ComplexItem(const QPointF &pos, const QSize &size):
+    GraphicItem(pos, size)
+{
+    setPos(pos);
+}
 
 QRectF ComplexItem::boundingRect() const
 {
-    return QRectF(QPointF(0,0), _element->size()).adjusted(-sPenSize, -sPenSize, sPenSize, sPenSize);
+    return QRectF(QPointF(0,0), _size).adjusted(-sPenSize, -sPenSize, sPenSize, sPenSize);
 }
 
 void ComplexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -40,11 +42,3 @@ void ComplexItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsItem::mouseReleaseEvent(event);
 }
 
-void ComplexItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
-{
-    if (_element)
-    {
-        _element->showMenu();
-    }
-    event->accept();
-}

@@ -2,22 +2,21 @@
 #define DELETEELEMENTACTION_H
 
 #include <QObject>
-#include "mainwindow.h"
 
-class Element;
+class GraphicItem;
 
 class DeleteElementAction : public QObject
 {
     Q_OBJECT
 
 public:
-    DeleteElementAction(Element *elem):_element(elem){}
+    DeleteElementAction(GraphicItem *item);
 
 public slots:
-    void remove() {MainWindow::getInstance()->removeElement(_element);deleteLater();}
+    void remove();
 
 private:
-    Element *_element;
+    GraphicItem *_item;
 };
 
 #endif // DELETEELEMENTACTION_H

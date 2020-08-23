@@ -1,21 +1,22 @@
 #include "LinkNMItem.h"
-#include "Element.h"
 
 #include <QPainter>
 #include <QRectF>
 #include <QGraphicsSceneMouseEvent>
 
-LinkNMItem::LinkNMItem(Element *link, const QPointF &movePoint, const QSet<QGraphicsItem *> &items):
-     GraphicItem(link),
+LinkNMItem::LinkNMItem(const QSet<GraphicItem *> &items):
+    GraphicItem(),
     _items(items),
-    _movablePoint(movePoint),
+    _movablePoint(),
     _movableRect(_movablePoint, QSize(0,0)),
     _isMoving(false)
 {
     _movableRect.adjust(-5,-5, 5, 5);
+    setFlag(QGraphicsItem::ItemIsMovable, true);
+    setFlag(QGraphicsItem::ItemIsSelectable, true);
 }
 
-void LinkNMItem::removeItem(QGraphicsItem *item)
+void LinkNMItem::removeItem(GraphicItem *item)
 {
     if (_items.remove(item))
         prepareGeometryChange();
@@ -45,8 +46,8 @@ void LinkNMItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     for (QGraphicsItem * item : _items)
         painter->drawLine(_movablePoint, item->sceneBoundingRect().center());
 
-//    painter->setPen(QPen(Qt::blue, sPenSize));
-//    painter->drawRect(boundingRect());
+    //    painter->setPen(QPen(Qt::blue, sPenSize));
+    //    painter->drawRect(boundingRect());
 }
 
 
@@ -77,16 +78,7 @@ void LinkNMItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     {
         _movablePoint = event->scenePos();
         _isMoving = false;
-        _element->setPos(_movablePoint);
         prepareGeometryChange();
     }
 }
 
-void LinkNMItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
-{
-    if (_element)
-    {
-        _element->showMenu();
-    }
-    event->accept();
-}

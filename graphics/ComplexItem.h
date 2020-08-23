@@ -6,7 +6,7 @@
 class ComplexItem : public GraphicItem
 {
 public:
-    ComplexItem(Element *elem);
+    ComplexItem(const QPointF & pos = QPointF(0,0), const QSize & size = QSize(50,50));
 
     // QGraphicsItem interface
 public:
@@ -20,7 +20,6 @@ protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    virtual void contextMenuEvent(QGraphicsSceneContextMenuEvent *event);
 };
 
 #endif // COMPLEXITEM_H

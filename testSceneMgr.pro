@@ -14,16 +14,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+    graphics/GraphicItem.cpp \
         mainwindow.cpp \
-    Element.cpp \
-    LinkElement.cpp \
     graphics/ComplexItem.cpp \
     graphics/LinkNMItem.cpp \
     DeleteElementAction.cpp
 
 HEADERS  += mainwindow.h \
-    Element.h \
-    LinkElement.h \
     graphics/ComplexItem.h \
     graphics/LinkNMItem.h \
     graphics/GraphicItem.h \

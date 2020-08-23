@@ -8,10 +8,9 @@
 class LinkNMItem : public GraphicItem
 {
 public:
-    LinkNMItem(Element *link, const QPointF &movePoint, const QSet<QGraphicsItem*> &items);
+    LinkNMItem(const QSet<GraphicItem*> &items);
 
-    void removeItem(QGraphicsItem *item);
-
+    void removeItem(GraphicItem *item);
 
 
     // QGraphicsItem interface
@@ -24,11 +23,10 @@ protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
-    virtual void contextMenuEvent(QGraphicsSceneContextMenuEvent *event);
 
 
 private:
-    QSet<QGraphicsItem*> _items;
+    QSet<GraphicItem*> _items;
 
     QPointF _movablePoint;
     QRectF  _movableRect;
