@@ -11,6 +11,8 @@ public:
 
 protected:
     Element *_element;
+
+    static const int sPenSize = 2;
 };
 
 #endif // GRAPHICITEM_H

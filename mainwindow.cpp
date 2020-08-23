@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include "Element.h"
 #include "LinkElement.h"
-#include <graphics/LinkItem.h>
+#include <graphics/LinkNMItem.h>
 
 MainWindow *MainWindow::_mainWin = Q_NULLPTR;
 

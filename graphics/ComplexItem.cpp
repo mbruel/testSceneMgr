@@ -9,12 +9,14 @@ ComplexItem::ComplexItem(Element *elem):QGraphicsItem(), GraphicItem(elem)
 
 QRectF ComplexItem::boundingRect() const
 {
-    return QRectF(QPointF(0,0), _element->size());
+    return QRectF(QPointF(0,0), _element->size()).adjusted(-sPenSize, -sPenSize, sPenSize, sPenSize);
 }
 
 void ComplexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->setPen(QPen(Qt::green, 2));
+    Q_UNUSED(option)
+    Q_UNUSED(widget)
+    painter->setPen(QPen(Qt::green, sPenSize));
     painter->drawRect(boundingRect());
 }
 
