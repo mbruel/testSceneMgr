@@ -1,13 +1,13 @@
 #ifndef GRAPHICITEM_H
 #define GRAPHICITEM_H
 
-
+#include <QGraphicsItem>
 class Element;
 
-class GraphicItem
+class GraphicItem : public QGraphicsItem
 {
 public:
-    GraphicItem(Element *elem):_element(elem){}
+    GraphicItem(Element *elem): QGraphicsItem(),_element(elem){}
 
 protected:
     Element *_element;

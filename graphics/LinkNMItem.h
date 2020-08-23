@@ -2,13 +2,10 @@
 #define LINKNMITEM_H
 
 #include "GraphicItem.h"
-#include <QGraphicsItem>
-
 #include <QSet>
 
 
-
-class LinkNMItem : public QGraphicsItem, public GraphicItem
+class LinkNMItem : public GraphicItem
 {
 public:
     LinkNMItem(Element *link, const QPointF &movePoint, const QSet<QGraphicsItem*> &items);

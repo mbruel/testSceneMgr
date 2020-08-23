@@ -6,7 +6,7 @@
 #include <QGraphicsSceneMouseEvent>
 
 LinkNMItem::LinkNMItem(Element *link, const QPointF &movePoint, const QSet<QGraphicsItem *> &items):
-    QGraphicsItem(), GraphicItem(link),
+     GraphicItem(link),
     _items(items),
     _movablePoint(movePoint),
     _movableRect(_movablePoint, QSize(0,0)),

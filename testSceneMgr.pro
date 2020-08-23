@@ -19,7 +19,6 @@ SOURCES += main.cpp\
     LinkElement.cpp \
     graphics/ComplexItem.cpp \
     graphics/LinkNMItem.cpp \
-    graphics/GraphicItem.cpp \
     DeleteElementAction.cpp
 
 HEADERS  += mainwindow.h \

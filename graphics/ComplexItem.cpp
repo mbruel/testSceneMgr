@@ -4,7 +4,7 @@
 #include <QRectF>
 #include "Element.h"
 
-ComplexItem::ComplexItem(Element *elem):QGraphicsItem(), GraphicItem(elem)
+ComplexItem::ComplexItem(Element *elem): GraphicItem(elem)
 {setPos(_element->pos());}
 
 QRectF ComplexItem::boundingRect() const

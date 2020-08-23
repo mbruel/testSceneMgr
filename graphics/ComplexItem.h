@@ -2,11 +2,8 @@
 #define COMPLEXITEM_H
 
 #include "GraphicItem.h"
-#include <QGraphicsItem>
 
-
-
-class ComplexItem : public QGraphicsItem, public GraphicItem
+class ComplexItem : public GraphicItem
 {
 public:
     ComplexItem(Element *elem);
