@@ -12,14 +12,6 @@ public:
 public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-
-    QPointF centerPoint() const;
-
-    // QGraphicsItem interface
-protected:
-    virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // COMPLEXITEM_H

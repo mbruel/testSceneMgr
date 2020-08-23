@@ -5,7 +5,10 @@
 
 GraphicItem::GraphicItem(const QPointF &pos, const QSize &size) :
     QGraphicsItem(), _scenePos(pos), _size(size), _color(Qt::black)
-{}
+{
+    setFlag(QGraphicsItem::ItemIsMovable,    true);
+    setFlag(QGraphicsItem::ItemIsSelectable, true);
+}
 
 void GraphicItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 {

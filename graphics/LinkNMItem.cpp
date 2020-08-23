@@ -12,8 +12,6 @@ LinkNMItem::LinkNMItem(const QSet<GraphicItem *> &items):
     _isMoving(false)
 {
     _movableRect.adjust(-5,-5, 5, 5);
-    setFlag(QGraphicsItem::ItemIsMovable, true);
-    setFlag(QGraphicsItem::ItemIsSelectable, true);
 }
 
 void LinkNMItem::removeItem(GraphicItem *item)
@@ -46,8 +44,8 @@ void LinkNMItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     for (QGraphicsItem * item : _items)
         painter->drawLine(_movablePoint, item->sceneBoundingRect().center());
 
-    //    painter->setPen(QPen(Qt::blue, sPenSize));
-    //    painter->drawRect(boundingRect());
+//    painter->setPen(QPen(Qt::blue, sPenSize));
+//    painter->drawRect(boundingRect());
 }
 
 

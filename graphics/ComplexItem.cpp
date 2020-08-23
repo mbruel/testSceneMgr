@@ -22,23 +22,3 @@ void ComplexItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
     painter->drawRect(boundingRect());
 }
 
-QPointF ComplexItem::centerPoint() const
-{
-    return sceneBoundingRect().center();
-}
-
-void ComplexItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
-{
-    QGraphicsItem::mousePressEvent(event);
-}
-
-void ComplexItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-{
-    QGraphicsItem::mouseMoveEvent(event);
-}
-
-void ComplexItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
-{
-    QGraphicsItem::mouseReleaseEvent(event);
-}
-
