@@ -54,7 +54,7 @@ void LinkNMItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
     painter->setPen(QPen(Qt::black, sPenSize));
     for (QGraphicsItem * item : _items)
-        painter->drawLine(_movablePoint, item->sceneBoundingRect().center());
+        painter->drawLine(_movablePoint, mapFromItem(item, item->boundingRect().center()));
 
     painter->setPen(QPen(Qt::blue, sPenSize));
     painter->drawRect(boundingRect());
