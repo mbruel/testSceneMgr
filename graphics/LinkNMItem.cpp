@@ -30,7 +30,7 @@ QRectF LinkNMItem::boundingRect() const
 //        polygon << item->sceneBoundingRect().center();
     }
 
-    return polygon.boundingRect().adjusted(-5, -5, 5, 5);
+    return polygon.boundingRect().adjusted(-10, -10, 10, 10);
 
 //    QRectF result(_movablePoint, QSize(0, 0));
 //    result.adjust(-5, -5, 5, 5); // or whatever to draw _movableRect
