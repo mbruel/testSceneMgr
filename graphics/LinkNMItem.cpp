@@ -25,9 +25,21 @@ QRectF LinkNMItem::boundingRect() const
     QPolygonF polygon;
     polygon << _movablePoint;
     for (QGraphicsItem * item : _items)
-        polygon << item->sceneBoundingRect().center();
+    {
+        polygon << mapFromItem(item, item->boundingRect().center());
+//        polygon << item->sceneBoundingRect().center();
+    }
 
     return polygon.boundingRect().adjusted(-5, -5, 5, 5);
+
+//    QRectF result(_movablePoint, QSize(0, 0));
+//    result.adjust(-5, -5, 5, 5); // or whatever to draw _movableRect
+
+//    for (QGraphicsItem * item : _items) {
+//        result = result.united(mapFromItem(item, item->boundingRect()).boundingRect()); // also need to take the pen into account, etc.
+//    }
+
+//    return result;
 }
 
 void LinkNMItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -44,8 +56,8 @@ void LinkNMItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     for (QGraphicsItem * item : _items)
         painter->drawLine(_movablePoint, item->sceneBoundingRect().center());
 
-//    painter->setPen(QPen(Qt::blue, sPenSize));
-//    painter->drawRect(boundingRect());
+    painter->setPen(QPen(Qt::blue, sPenSize));
+    painter->drawRect(boundingRect());
 }
 
 
