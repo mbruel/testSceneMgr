@@ -64,7 +64,7 @@ void LinkNMItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 void LinkNMItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mousePressEvent(event);
-    QPointF pos = event->scenePos();
+    QPointF pos = event->pos();
     if (_movableRect.contains(pos))
         _isMoving = true;
 }
@@ -73,7 +73,7 @@ void LinkNMItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     if (_isMoving)
     {
-        _movablePoint = event->scenePos();
+        _movablePoint = event->pos();
         update();
         event->accept();
     }
@@ -86,7 +86,7 @@ void LinkNMItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsItem::mouseReleaseEvent(event);
     if (_isMoving)
     {
-        _movablePoint = event->scenePos();
+        _movablePoint = event->pos();
         _isMoving = false;
         prepareGeometryChange();
     }
