@@ -31,15 +31,6 @@ QRectF LinkNMItem::boundingRect() const
     }
 
     return polygon.boundingRect().adjusted(-10, -10, 10, 10);
-
-//    QRectF result(_movablePoint, QSize(0, 0));
-//    result.adjust(-5, -5, 5, 5); // or whatever to draw _movableRect
-
-//    for (QGraphicsItem * item : _items) {
-//        result = result.united(mapFromItem(item, item->boundingRect()).boundingRect()); // also need to take the pen into account, etc.
-//    }
-
-//    return result;
 }
 
 void LinkNMItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -74,7 +65,7 @@ void LinkNMItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     if (_isMoving)
     {
         _movablePoint = event->pos();
-        update();
+        prepareGeometryChange();
         event->accept();
     }
     else
