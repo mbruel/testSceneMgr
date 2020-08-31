@@ -64,8 +64,8 @@ void LinkNMItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     if (_isMoving)
     {
-        _movablePoint = event->pos();
         prepareGeometryChange();
+        _movablePoint = event->pos();
         event->accept();
     }
     else
@@ -77,9 +77,9 @@ void LinkNMItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsItem::mouseReleaseEvent(event);
     if (_isMoving)
     {
+        prepareGeometryChange();
         _movablePoint = event->pos();
         _isMoving = false;
-        prepareGeometryChange();
     }
 }
 
